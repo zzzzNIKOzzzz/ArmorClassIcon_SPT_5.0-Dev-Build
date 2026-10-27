@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ArmorClassIcon
 {
-    [BepInPlugin("com.zzzNIKOzzz.armorclassicon", "ArmorClassIcon", PluginVersion)]
+    [BepInPlugin("zzzNIKOzzz.armorclassicon", "ArmorClassIcon", PluginVersion)]
     public class Plugin : BasePlugin
     {
         public const string PluginVersion = "1.0.0";
@@ -17,9 +17,8 @@ namespace ArmorClassIcon
         {
             Logger = Log;
 
-            Logger.LogInfo("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
-            Logger.LogInfo("ArmorClassIcon от zzzNIKOzzz загружается...");
-            Logger.LogInfo("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+            Logger.LogInfo("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+            Logger.LogInfo("___ArmorClassIcon от zzzNIKOzzz загружается___");
             Settings.Init(Config);
 
             new ItemViewStatsPatch().Enable();
@@ -29,6 +28,8 @@ namespace ArmorClassIcon
             var go = new GameObject("ArmorClassIconBehaviour");
             GameObject.DontDestroyOnLoad(go);
             go.AddComponent<IconUpdaterBehaviour>();
+            Logger.LogInfo("zzzNIKOzzz: Теперь всё понятно, блет! Спасибо!");
+            Logger.LogInfo("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
         }
     }
 
