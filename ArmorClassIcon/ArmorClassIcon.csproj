@@ -1,0 +1,95 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <OutputType>Library</OutputType>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <DebugType>embedded</DebugType>
+        <Optimize>true</Optimize>
+        <DefineConstants>TRACE</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <BepInExDir>D:\Games\EscapeFromTarkov5.0\BepInEx</BepInExDir>
+        <CoreDir>$(BepInExDir)\core</CoreDir>
+        <InteropDir>$(BepInExDir)\interop</InteropDir>
+        <SptDir>$(BepInExDir)\plugins\sptushonka</SptDir>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+        <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+        <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+        <GenerateAssemblyAssemblyCopyrightAttribute>false</GenerateAssemblyAssemblyCopyrightAttribute>
+        <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    </PropertyGroup>
+
+    <!-- BepInEx 6 / IL2CPP (core) -->
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>$(CoreDir)\0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <!-- В BepInEx 6 сборка называется BepInEx.Core.dll (namespace остался BepInEx) -->
+        <Reference Include="BepInEx.Core">
+            <HintPath>$(CoreDir)\BepInEx.Core.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="BepInEx.Unity.IL2CPP">
+            <HintPath>$(CoreDir)\BepInEx.Unity.IL2CPP.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Il2CppInterop.Runtime">
+            <HintPath>$(CoreDir)\Il2CppInterop.Runtime.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- IL2CPP mscorlib (interop) -->
+    <ItemGroup>
+        <Reference Include="Il2Cppmscorlib">
+            <HintPath>$(InteropDir)\Il2Cppmscorlib.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- SPTushonka.Reflection -->
+    <ItemGroup>
+        <Reference Include="SPTushonka.Reflection">
+            <HintPath>$(SptDir)\SPTushonka.Reflection.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- Игровые и Unity-сборки (interop) -->
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(InteropDir)\Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="ItemComponent.Types">
+            <HintPath>$(InteropDir)\ItemComponent.Types.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>$(InteropDir)\UnityEngine.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(InteropDir)\UnityEngine.CoreModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>$(InteropDir)\UnityEngine.UI.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <HintPath>$(InteropDir)\UnityEngine.UIModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+</Project>
